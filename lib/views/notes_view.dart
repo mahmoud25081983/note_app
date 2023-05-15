@@ -8,7 +8,7 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Center(),
+      body: const Center(child: Text("Todo"),),
     );
   }
 }
