@@ -14,7 +14,7 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'To Do',
+      title: 'To Do App',
       theme: ThemeData(brightness: Brightness.dark
         
       ),
