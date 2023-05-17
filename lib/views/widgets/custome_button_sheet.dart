@@ -12,7 +12,8 @@ class AddButtonSheet extends StatelessWidget {
       children: [
         const SizedBox(height: 32),
         CustomTextField(labelText: "Title",),
-        CustomTextField(labelText: "Conent",),
+        const SizedBox(height: 16),
+        CustomTextField(labelText: "Content", maxLines: 6),
         const SizedBox(height: 32),
         CustomButton(text: 'Add', onTap: () {
           

@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import '../../constant.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({super.key, this.labelText, this.onChange, this.keyboardType});
+  CustomTextField({
+    super.key,
+    this.labelText,
+    this.onChange,
+    this.keyboardType,
+    this.init,
+    this.maxLines = 1,
+  });
+  final String? init;
+  final int? maxLines;
 
   String? labelText;
   Function(String)? onChange;
@@ -15,6 +24,7 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         cursorColor: kPrimaruColor,
         keyboardType: keyboardType,
+        maxLines: maxLines,
         decoration: InputDecoration(
           labelText: labelText!,
           //labelStyle: const TextStyle(color: kPrimaruColor),
@@ -29,8 +39,9 @@ class CustomTextField extends StatelessWidget {
 
   OutlineInputBorder buildBorder([color]) {
     return OutlineInputBorder(
-            borderSide:  BorderSide(
-              color:  color ?? Colors.white,),
-            borderRadius: BorderRadius.circular(8));
+        borderSide: BorderSide(
+          color: color ?? Colors.white,
+        ),
+        borderRadius: BorderRadius.circular(8));
   }
 }
