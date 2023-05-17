@@ -11,13 +11,14 @@ class AddButtonSheet extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 32),
-        CustomTextField(labelText: "Title",),
+        CustomTextField(labelText: "Title"),
         const SizedBox(height: 16),
-        CustomTextField(labelText: "Content", maxLines: 6),
+        CustomTextField(labelText: "Content", maxLines: 5),
         const SizedBox(height: 32),
-        CustomButton(text: 'Add', onTap: () {
-          
-        },)
+        CustomButton(
+          text: 'Add',
+          onTap: () {},
+        ),
       ],
     );
   }
