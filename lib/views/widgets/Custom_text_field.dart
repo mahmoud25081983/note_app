@@ -4,7 +4,6 @@ import '../../constant.dart';
 
 class CustomTextField extends StatelessWidget {
   CustomTextField({
-    super.key,
     this.labelText,
     this.onChange,
     this.keyboardType,
@@ -14,9 +13,9 @@ class CustomTextField extends StatelessWidget {
   final String? init;
   final int? maxLines;
 
-  String? labelText;
-  Function(String)? onChange;
-  TextInputType? keyboardType;
+ final String? labelText;
+ final Function(String)? onChange;
+ final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return Padding(
