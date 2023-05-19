@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constant.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
+  const CustomTextField({super.key, 
     this.labelText,
     this.onSave,
     this.keyboardType,

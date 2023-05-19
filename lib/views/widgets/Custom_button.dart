@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:noteapp/constant.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton({required this.text, this.onTap});
+  const CustomButton({super.key, required this.text, this.onTap});
  final String? text;
  final VoidCallback? onTap;
  final bool isLoading = true;
