@@ -5,7 +5,7 @@ import '../../constant.dart';
 class CustomTextField extends StatelessWidget {
   CustomTextField({
     this.labelText,
-    this.onChange,
+    this.onSave,
     this.keyboardType,
     this.init,
     this.maxLines = 1,
@@ -13,14 +13,14 @@ class CustomTextField extends StatelessWidget {
   final String? init;
   final int? maxLines;
 
- final String? labelText;
- final Function(String)? onChange;
- final TextInputType? keyboardType;
+  final String? labelText;
+  final void Function(String?)? onSave;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: TextField(
+      child: TextFormField(
         cursorColor: kPrimaruColor,
         keyboardType: keyboardType,
         maxLines: maxLines,
@@ -31,7 +31,14 @@ class CustomTextField extends StatelessWidget {
           enabledBorder: buildBorder(),
           focusedBorder: buildBorder(kPrimaruColor),
         ),
-        onChanged: onChange,
+        onSaved: onSave,
+        validator: (value) {
+          if (value?.isEmpty ?? true) {
+            return "Field is required";
+          } else {
+            return null;
+          }
+        },
       ),
     );
   }
