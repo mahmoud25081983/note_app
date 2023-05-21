@@ -18,28 +18,25 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: TextFormField(
-        cursorColor: kPrimaruColor,
-        keyboardType: keyboardType,
-        maxLines: maxLines,
-        decoration: InputDecoration(
-          labelText: labelText!,
-          //labelStyle: const TextStyle(color: kPrimaruColor),
-          border: buildBorder(),
-          enabledBorder: buildBorder(),
-          focusedBorder: buildBorder(kPrimaruColor),
-        ),
-        onSaved: onSave,
-        validator: (value) {
-          if (value?.isEmpty ?? true) {
-            return "Field is required";
-          } else {
-            return null;
-          }
-        },
+    return TextFormField(
+      cursorColor: kPrimaruColor,
+      keyboardType: keyboardType,
+      maxLines: maxLines,
+      decoration: InputDecoration(
+        labelText: labelText!,
+        //labelStyle: const TextStyle(color: kPrimaruColor),
+        border: buildBorder(),
+        enabledBorder: buildBorder(),
+        focusedBorder: buildBorder(kPrimaruColor),
       ),
+      onSaved: onSave,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return "Field is required";
+        } else {
+          return null;
+        }
+      },
     );
   }
 
