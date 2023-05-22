@@ -8,7 +8,7 @@ class NoteItem extends StatelessWidget {
 
   final NoteModel noteModel;
 
-    final colors = const [
+  final colors = const [
     Colors.redAccent,
     Colors.yellowAccent,
     Colors.greenAccent,
@@ -38,7 +38,7 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               //contentPadding: EdgeInsets.all(0),
-              title:  Text(
+              title: Text(
                 noteModel.title,
                 style: TextStyle(color: Colors.black, fontSize: 26),
               ),
@@ -51,7 +51,9 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  noteModel.delete();
+                },
                 icon: const Icon(
                   FontAwesomeIcons.trash,
                   color: Colors.black,
