@@ -3,7 +3,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:noteapp/simple_bloc_observer.dart';
 import 'constant.dart';
-import 'cubits/add_note_cubit/add_note_cubit.dart';
 import 'models/notemodel.dart';
 import 'views/notes_view.dart';
 
@@ -24,7 +23,7 @@ class NotesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'To Do App',
       theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
-      home: const NotesView(),
+      home:  NotesView(),
     );
   }
 }
