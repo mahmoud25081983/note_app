@@ -1,31 +1,51 @@
 import 'package:flutter/material.dart';
 
 class ColorItems extends StatelessWidget {
-  const ColorItems({super.key});
+  const ColorItems({super.key, required this.isPicked, required this.color});
+
+  final bool isPicked;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(1),
-      child: CircleAvatar(
-        backgroundColor: Colors.blue,
-        radius: 22,
-      ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: isPicked
+          ? CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 22,
+              child: CircleAvatar(
+                backgroundColor: color,
+                radius: 18,
+              ),
+            )
+          : CircleAvatar(
+              backgroundColor: color,
+              radius: 22,
+            ),
     );
   }
 }
 
-class ColorsListView extends StatelessWidget {
+class ColorsListView extends StatefulWidget {
   const ColorsListView({super.key});
 
-  final colors = const [
-    Colors.redAccent,
-    Colors.yellowAccent,
-    Colors.greenAccent,
-    Colors.blueAccent,
-    Colors.tealAccent,
-    Colors.orangeAccent,
+  @override
+  State<ColorsListView> createState() => _ColorsListViewState();
+}
+
+class _ColorsListViewState extends State<ColorsListView> {
+  List<Color> colors = const [
+    Colors.teal,
+    Colors.red,
+    Colors.yellow,
+    Colors.blue,
+    Colors.orange,
+    Colors.deepPurple,
+    Colors.pink
   ];
+
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +55,16 @@ class ColorsListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: colors.length,
         itemBuilder: (context, index) {
-          return const ColorItems();
+          return GestureDetector(
+            onTap: () {
+              currentIndex = index;
+              setState(() {});
+            },
+            child: ColorItems(
+              isPicked: currentIndex == index,
+              color: colors[index],
+            ),
+          );
         },
       ),
     );
