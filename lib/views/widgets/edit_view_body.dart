@@ -1,23 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:noteapp/views/widgets/custome_app_bar.dart';
 
+import '../../cubits/notes_ cubit/notes_cubit.dart';
+import '../../models/notemodel.dart';
 import 'Custom_text_field.dart';
 
-class EditNoteViewBody extends StatelessWidget {
-  const EditNoteViewBody({super.key});
+class EditNoteViewBody extends StatefulWidget {
+  const EditNoteViewBody({super.key, required this.noteModel});
+  final NoteModel noteModel;
 
   @override
+  State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
+}
+
+class _EditNoteViewBodyState extends State<EditNoteViewBody> {
+  String? title, content;
+  @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-          SizedBox(height: 50),
-          CustomUppBar(title: "Edit Note", icon: Icons.edit),
-          SizedBox(height: 50),
-          CustomTextField(labelText: "Title"),
-          SizedBox(height: 16),
-          CustomTextField(labelText: "Content", maxLines: 5),
+          const SizedBox(height: 50),
+          CustomUppBar(
+            title: "Edit Note",
+            icon: Icons.edit,
+            onPressed: () {
+              widget.noteModel.title = title ?? widget.noteModel.title;
+              widget.noteModel.content = content ?? widget.noteModel.content;
+              widget.noteModel.save();
+              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              Navigator.pop(context);
+            },
+          ),
+          const SizedBox(height: 50),
+          CustomTextField(
+            hintText: widget.noteModel.title,
+            onChanged: (value) {
+              title = value;
+            },
+          ),
+          const SizedBox(height: 16),
+          CustomTextField(
+            hintText: widget.noteModel.content,
+            maxLines: 5,
+            onChanged: (value) {
+              content = value;
+            },
+          ),
         ],
       ),
     );

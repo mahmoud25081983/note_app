@@ -19,7 +19,7 @@ class AddNoteForm extends StatefulWidget {
 class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formlKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? title, subTitel;
+  String? title, content;
   String formattedDate = DateFormat('dd/MMMM/yyyy').format(DateTime.now());
 
   @override
@@ -31,17 +31,17 @@ class _AddNoteFormState extends State<AddNoteForm> {
         children: [
           const SizedBox(height: 32),
           CustomTextField(
-            labelText: "Title",
+            hintText: "Title",
             onSave: (value) {
               title = value;
             },
           ),
           const SizedBox(height: 16),
           CustomTextField(
-            labelText: "Content",
+            hintText: "Content",
             maxLines: 5,
             onSave: (value) {
-              subTitel = value;
+              content = value;
             },
           ),
           const SizedBox(height: 32),
@@ -54,7 +54,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   formlKey.currentState!.save();
                   NoteModel note = NoteModel(
                     title: title!,
-                    subTitle: subTitel!,
+                    content: content!,
                     date: formattedDate,
                     color: Colors.greenAccent.value,
                   );

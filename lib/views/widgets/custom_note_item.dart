@@ -25,7 +25,7 @@ class NoteItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const EditNoteView(),
+            builder: (context) => EditNoteView(noteModel: noteModel),
           ),
         );
       },
@@ -47,7 +47,7 @@ class NoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
-                  noteModel.subTitle,
+                  noteModel.content,
                   style: TextStyle(
                       color: Colors.black.withOpacity(0.6), fontSize: 18),
                 ),
