@@ -10,14 +10,6 @@ class NoteItem extends StatelessWidget {
 
   final NoteModel noteModel;
 
-  final colors = const [
-    Colors.redAccent,
-    Colors.yellowAccent,
-    Colors.greenAccent,
-    Colors.blueAccent,
-    Colors.tealAccent,
-    Colors.orangeAccent,
-  ];
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

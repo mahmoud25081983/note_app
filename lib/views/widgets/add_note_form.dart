@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 
 import 'Custom_button.dart';
 import 'Custom_text_field.dart';
+import 'custom_color_picker.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
@@ -44,7 +45,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
               content = value;
             },
           ),
-          const SizedBox(height: 32),
+          const SizedBox(height: 16),
+          const ColorsListView(),
+          const SizedBox(height: 16),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) => CustomButton(
               isLoading: state is AddNoteLoading ? true : false,
@@ -71,3 +74,5 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
+
