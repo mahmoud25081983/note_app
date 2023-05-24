@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../cubits/notes_ cubit/notes_cubit.dart';
 import 'custome_app_bar.dart';
-import 'custome_list_view_builder.dart';
+import 'custome_add_note_color_picker.dart';
 
 class NotesViewBody extends StatefulWidget {
   const NotesViewBody({super.key});
